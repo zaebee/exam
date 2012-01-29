@@ -8,7 +8,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
-    (r'^model_list/', include('dynamic_models.urls')),
+    (r'^', include('dynamic_models.urls')),
 )
 
 if settings.DEBUG:
