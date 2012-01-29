@@ -1,32 +1,38 @@
 {% extends 'dynamic_models/base.html' %}
+{% load dynamic_tags %}
 
 {% block content %}
-<div class="row">
-  <div class="four columns">
-    <dl class="nice vertical tabs">
-      <dd><a href="/model_list/usersdynamicmodel/">Vertical Tab 1</a></dd>
-      <dd><a href="#vertical2" class="ajaxctive">Vertical Tab 2</a></dd>
-      <dd><a href="#vertical3" class="">Vertical Tab 3</a></dd>
-    </dl>
+  <div class="row">
+    <div class="four columns">
+      {% dynamic_tabs %}
+    </div>
+    <div class="eight columns">
+      <table id="model_list">
+
+      </table>
+    </div>
   </div>
-  <div class="eight columns">
-    <table>
-            <thead>
-                <tr align="left">
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Data</th>
-                    <th colspan=2>Manage</th>
-                </tr>
-            </thead>
-            {% for record in records %}
-                <tr class="record-item {% cycle odd,even %}">
-                    <td>{{ record.name }}</td>
-                    <td>{{ record.get_type_display }}</td>
-                    <td>{{ record.content  }}</td>
-                </tr>
-            {% endfor %}
-          </table>
-  </div>
-</div>
+
+  {% verbatim %}
+
+    <script id="modelHead" type="text/html">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+    </script>
+
+    <script id="modelBody" type="text/html">
+      {{#fields}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{paycheck}}</td>
+      </tr>
+      {{/fields}}
+    </script>
+
+  {% endverbatim %}
+
 {% endblock %}
