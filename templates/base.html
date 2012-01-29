@@ -45,12 +45,11 @@
 
         {% block js-libs %}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-        <script src="http://cdn.jquerytools.org/1.2.5/all/jquery.tools.min.js"></script>
+        <script src="{{ STATIC_URL }}js/libs/ICanHaz.min.js"></script>
         <script src="{{ STATIC_URL }}js/libs/foundation.js"></script>
         <script src="{{ STATIC_URL }}js/app.js"></script>
 
         <script>!window.jQuery && document.write(unescape('%3Cscript src="{{ STATIC_URL }}js/libs/jquery-1.5.min.js"%3E%3C/script%3E'))</script>
-        <script>!window.jQuery && document.write(unescape('%3Cscript src="{{ STATIC_URL }}js/libs/jquery.tools.js"%3E%3C/script%3E'))</script>
         {% endblock js-libs %}
 
         {% block extrajs %}{% endblock extrajs %}
