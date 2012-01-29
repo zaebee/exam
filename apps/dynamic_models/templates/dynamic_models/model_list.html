@@ -8,7 +8,6 @@
     </div>
     <div class="eight columns">
       <table id="model_list">
-
       </table>
     </div>
   </div>
@@ -18,19 +17,19 @@
     <script id="modelHead" type="text/html">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
+          {{#fields}}
+          <th>{{.}}</th>
+          {{/fields}}
         </tr>
       </thead>
     </script>
 
     <script id="modelBody" type="text/html">
-      {{#fields}}
       <tr>
-        <td>{{name}}</td>
-        <td>{{paycheck}}</td>
+      {{#model}}
+        <td>{{.}}</td>
+      {{/model}}
       </tr>
-      {{/fields}}
     </script>
 
   {% endverbatim %}
