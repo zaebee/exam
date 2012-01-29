@@ -24,18 +24,22 @@ $(document).ready(function () {
 
 	function activateTab($tab) {
 		var $activeTab = $tab.closest('dl').find('a.active'),
-				//contentLocation = $tab.attr("href") + 'Tab';
-				contentLocation = $tab.attr("href");
-        $.post(contentLocation, function(data){
+				
+        contentLocation = $tab.attr("href");
+        $('#model_list').children().remove();
+        head = ich.modelHead()
+        $('#model_list').append(head);
+
+        $.post(contentLocation, function(data, status){
+          $.each(data, function(index, model) {
+            model = ich.modelBody(model);
+            $('#model_list').append(model);
+          });
         });
 
 		//Make Tab Active
 		$activeTab.removeClass('active');
 		$tab.addClass('active');
-
-    	//Show Tab Content
-		//$(contentLocation).closest('.tabs-content').children('li').hide();
-		//$(contentLocation).show();
 	}
 
 	$('dl.tabs').each(function () {
