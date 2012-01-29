@@ -1,0 +1,4 @@
+dev/
+tmp/
+*.pyc
+*.db
