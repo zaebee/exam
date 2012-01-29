@@ -2,6 +2,7 @@
 {% load dynamic_tags %}
 
 {% block content %}
+{% csrf_token %}
   <div class="row">
     <div class="four columns">
       {% dynamic_tabs %}
