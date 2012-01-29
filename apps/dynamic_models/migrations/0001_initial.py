@@ -10,24 +10,24 @@ class Migration(SchemaMigration):
         
         # Adding model 'UsersDynamicModel'
         db.create_table('dynamic_models_usersdynamicmodel', (
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=80)),
-            ('paycheck', self.gf('django.db.models.fields.IntegerField')(max_length=5)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=80, null=True, blank=True)),
+            ('paycheck', self.gf('django.db.models.fields.IntegerField')(max_length=5, null=True, blank=True)),
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
         ))
         db.send_create_signal('dynamic_models', ['UsersDynamicModel'])
 
         # Adding model 'RoomsDynamicModel'
         db.create_table('dynamic_models_roomsdynamicmodel', (
-            ('department', self.gf('django.db.models.fields.CharField')(max_length=80)),
-            ('spots', self.gf('django.db.models.fields.IntegerField')(max_length=5)),
+            ('department', self.gf('django.db.models.fields.CharField')(max_length=80, null=True, blank=True)),
+            ('spots', self.gf('django.db.models.fields.IntegerField')(max_length=5, null=True, blank=True)),
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
         ))
         db.send_create_signal('dynamic_models', ['RoomsDynamicModel'])
 
         # Adding model 'OfficiesDynamicModel'
         db.create_table('dynamic_models_officiesdynamicmodel', (
-            ('address', self.gf('django.db.models.fields.CharField')(max_length=80)),
-            ('description', self.gf('django.db.models.fields.TextField')()),
+            ('address', self.gf('django.db.models.fields.CharField')(max_length=80, null=True, blank=True)),
+            ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
         ))
         db.send_create_signal('dynamic_models', ['OfficiesDynamicModel'])
@@ -61,21 +61,21 @@ class Migration(SchemaMigration):
         },
         'dynamic_models.officiesdynamicmodel': {
             'Meta': {'ordering': "('-id',)", 'object_name': 'OfficiesDynamicModel'},
-            'address': ('django.db.models.fields.CharField', [], {'max_length': '80'}),
-            'description': ('django.db.models.fields.TextField', [], {}),
+            'address': ('django.db.models.fields.CharField', [], {'max_length': '80', 'null': 'True', 'blank': 'True'}),
+            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
         },
         'dynamic_models.roomsdynamicmodel': {
             'Meta': {'ordering': "('-id',)", 'object_name': 'RoomsDynamicModel'},
-            'department': ('django.db.models.fields.CharField', [], {'max_length': '80'}),
+            'department': ('django.db.models.fields.CharField', [], {'max_length': '80', 'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'spots': ('django.db.models.fields.IntegerField', [], {'max_length': '5'})
+            'spots': ('django.db.models.fields.IntegerField', [], {'max_length': '5', 'null': 'True', 'blank': 'True'})
         },
         'dynamic_models.usersdynamicmodel': {
             'Meta': {'ordering': "('-id',)", 'object_name': 'UsersDynamicModel'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '80'}),
-            'paycheck': ('django.db.models.fields.IntegerField', [], {'max_length': '5'})
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '80', 'null': 'True', 'blank': 'True'}),
+            'paycheck': ('django.db.models.fields.IntegerField', [], {'max_length': '5', 'null': 'True', 'blank': 'True'})
         }
     }
 
