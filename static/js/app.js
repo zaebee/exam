@@ -27,12 +27,13 @@ $(document).ready(function () {
 				
         contentLocation = $tab.attr("href");
         $('#model_list').children().remove();
-        head = ich.modelHead()
-        $('#model_list').append(head);
 
         $.post(contentLocation, function(data, status){
-          $.each(data, function(index, model) {
-            model = ich.modelBody(model);
+          head = ich.modelHead(data)
+          $('#model_list').append(head);
+          $.each(data.qs, function(index, qs) {
+            output = {'model': qs}
+            model = ich.modelBody(output);
             $('#model_list').append(model);
           });
         });
