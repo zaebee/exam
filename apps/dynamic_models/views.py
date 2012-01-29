@@ -9,6 +9,7 @@ def get_qs(request, model_name):
     model = get_model('dynamic_models', model_name)
     fields = [f.name for f in model._meta.fields]
     qs = model.objects.all().values_list(*fields)
+    fields = [f.verbose_name for f in model._meta.fields]
     result = {'fields': fields, 'qs':list(qs)}
     if request.is_ajax():
         return HttpResponse(simplejson.dumps(result),
