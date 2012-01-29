@@ -10,6 +10,6 @@
   </model>
   <model name="officies" title="Офисы">
     <field id="address" type="char" title="Адрес" />
-    <field id="description" type="int" title="Описание" />
+    <field id="description" type="text" title="Описание" />
   </model>
 </root>
