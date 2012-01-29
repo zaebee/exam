@@ -11,5 +11,6 @@
   <model name="officies" title="Офисы">
     <field id="address" type="char" title="Адрес" />
     <field id="description" type="text" title="Описание" />
+    <field id="mode" type="text" title="Режим работы" />
   </model>
 </root>

@@ -38,7 +38,9 @@ def get_model_from_config(config_file=CONFIG_FILE):
 
         for field in fields:
             kwargs = {
-                'verbose_name': field.attrib['title']
+                'verbose_name': field.attrib['title'],
+                'blank':True,
+                'null':True,
                 }
 
             f = {field.attrib['id']:xml_to_field(field.attrib['type'], **kwargs)}
