@@ -1,0 +1,7 @@
+<dl class="nice vertical tabs">
+  {% for model_name, verbose_name in models.items %}
+    <dd>
+      <a href="{% url get_qs  model_name|lower %}">{{ verbose_name }}</a>
+    </dd>
+  {% endfor %}
+</dl>
