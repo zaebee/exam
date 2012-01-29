@@ -7,6 +7,8 @@ from django.utils import simplejson
 
 def get_qs(request, model_name):
     model = get_model('dynamic_models', model_name)
+    if not model:
+        raise Http404
     fields = [f.name for f in model._meta.fields]
     qs = model.objects.all().values_list(*fields)
     fields = [f.verbose_name for f in model._meta.fields]
