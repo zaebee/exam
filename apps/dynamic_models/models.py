@@ -22,7 +22,7 @@ class BaseDynamicModel(object):
 
     def create_dynamic_model(self, xml_model=None):
         """
-        Creates a dynamic model to associate with the model provided.
+        Creates a dynamic model to associate with the xml model provided.
         """
         attrs = self.get_dynamic_model_fields(xml_model)
         attrs.update(Meta=type('Meta', (), self.get_meta_options(xml_model)))
@@ -39,8 +39,8 @@ class BaseDynamicModel(object):
 
     def get_dynamic_model_fields(self, xml_model=None):
         """
-        Returns a dictionary of fields that will be added to the historical
-        record model, in addition to the ones returned by copy_fields below.
+        Returns a dictionary of fields that will be added to the dynamic
+        model.
         """
         fields =  {
             '__module__': self.__module__,
@@ -60,7 +60,7 @@ class BaseDynamicModel(object):
     def get_meta_options(self, xml_model):
         """
         Returns a dictionary of fields that will be added to
-        the Meta inner class of the dynamic record model.
+        the Meta inner class of the dynamic model.
         """
         return {
             'ordering': ('-id',),
